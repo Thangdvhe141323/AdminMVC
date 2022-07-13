@@ -1,0 +1,104 @@
+﻿@model IEnumerable<MyClass.Model.Product>
+
+@{
+    ViewBag.Title = "Trash";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section header {
+
+    <link href="~/Models/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section footer {
+
+    <script src="~/Models/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <strong>Thung rac Sản Phẩm</strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="@Url.Action("Index", "Product") " class="btn btn-sm btn-success"> <i class="fas fa-backspace"></i> Back to list</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                @Html.Partial("Message")
+                <table class="table table-bordered table-striped" id="myTable">
+                    <tr>
+                        <th class="text-center" style="width:20px">#</th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MetaDesc)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MetaKey)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreateBy)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                        <th class="text-center" style="width:180px">Chức năng</th>
+                        <th class="text-center" style="width:20px">ID</th>
+                    </tr>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><input type="checkbox" name="checkId" value="" /></td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MetaDesc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MetaKey)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreateAt)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td>
+
+                                    <a href="@Url.Action("ReTrash","Product", new { id = item.Id }) " class="btn btn-sm btn-info"> <i class="fas fa-edit"></i></a>
+                                    <a href="@Url.Action("Delete","Product", new { id = item.Id }) " class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i></a>
+                                </td>
+                                <td>@item.Id</td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

@@ -1,0 +1,128 @@
+﻿@model MyClass.Model.Product
+
+@{
+    ViewBag.Title = "Details Product";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+h2>Details</h2>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <strong>Chi tiet danh mục sản phẩm</strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="@Url.Action("Edit","Product", new { id = Model.CatId }) " class="btn btn-sm btn-info"> <i class="fas fa-edit">Edit</i></a>
+                        <a href="@Url.Action("Index", "Product") " class="btn btn-sm btn-success"> <i class="fas fa-backspace"></i> Back to list</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Slug)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Slug)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CatId)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CatId)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SuplierId)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SuplierId)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MetaDesc)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.MetaDesc)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MetaKey)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.MetaKey)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreateBy)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CreateBy)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreateAt)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CreateAt)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UpdateBy)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.UpdateBy)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UpdateAt)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.UpdateAt)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+
+                </dl>
+            </div>
+
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
